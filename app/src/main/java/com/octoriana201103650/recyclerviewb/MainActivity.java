@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadRecyclerView() {
         AsyncHttpClient ahc = new AsyncHttpClient();
-        String url = "https://stmikpontianak.net/011100862/tampilmahasiswa.php";
+        String url = "https://stmikpontianak.net/011100862/tampilMahasiswa.php";
 
         ahc.get(url, new AsyncHttpResponseHandler() {
             @Override
@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddMahasiswaActivity.class);
                 startActivity(intent);
-
-                loadRecyclerView();
             }
         });
     }

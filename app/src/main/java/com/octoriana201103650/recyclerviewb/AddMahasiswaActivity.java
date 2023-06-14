@@ -46,7 +46,7 @@ public class AddMahasiswaActivity extends AppCompatActivity {
                 String jp = _jpSpinner.getSelectedItem().toString();
                 String nama = _namaEditText.getText().toString();
                 String nim = _nimEditText.getText().toString();
-                String statusNikah = _statusNikahSpinner.getSelectedItem().toString();
+                String statusPernikahan = _statusNikahSpinner.getSelectedItem().toString();
                 String tahunMasuk = _tahunMasukEditText.getText().toString();
                 String tanggalLahir = _tanggalLahirEditText.getText().toString();
                 String tempatLahir = _tempatLahirEditText.getText().toString();
@@ -54,16 +54,17 @@ public class AddMahasiswaActivity extends AppCompatActivity {
                 try {
                     alamat = URLEncoder.encode(alamat, "utf-8");
                     jenisKelamin = URLEncoder.encode(jenisKelamin, "utf-8");
+                    jp = URLEncoder.encode(jp, "utf-8");
                     nama = URLEncoder.encode(nama, "utf-8");
                     nim = URLEncoder.encode(nim, "utf-8");
-                    statusNikah = URLEncoder.encode(statusNikah, "utf-8");
+                    statusPernikahan = URLEncoder.encode(statusPernikahan, "utf-8");
                     tanggalLahir = URLEncoder.encode(tanggalLahir, "utf-8");
                     tempatLahir = URLEncoder.encode(tempatLahir, "utf-8");
                 }catch (UnsupportedEncodingException e){
                     e.printStackTrace();
                 }
 
-                String url = "https://stmikpontianak.net/011100862/tambahmahasiswa.php" +
+                String url = "https://stmikpontianak.net/011100862/tambahMahasiswa.php" +
                         "?nim=" + nim +
                         "&nama=" + nama +
                         "&jenisKelamin=" + jenisKelamin +
@@ -71,7 +72,7 @@ public class AddMahasiswaActivity extends AppCompatActivity {
                         "tanggalLahir=" + tanggalLahir +
                         "&alamat=" + alamat +
                         "&jp=" + jp +
-                        "&statusPernikahan=" + statusNikah +
+                        "&statusPernikahan=" + statusPernikahan +
                         "&tahunMasuk" + tahunMasuk;
 
                 Log.d("*tw*", url);
@@ -96,6 +97,19 @@ public class AddMahasiswaActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void initInputs(){
+        _alamatEditText = findViewById(R.id.alamatEditText);
+        _jenisKelaminSpinner = findViewById(R.id.jenisKelaminSpinner);
+        _jpSpinner = findViewById(R.id.jpSpinner);
+        _namaEditText = findViewById(R.id.namaEditText);
+        _nimEditText = findViewById(R.id.nimEditText);
+        _statusNikahSpinner = findViewById(R.id.statusNikahSpinner);
+        _tahunMasukEditText = findViewById(R.id.tahunMasukEditText);
+        _tanggalLahirEditText = findViewById(R.id.tanggalLahirEditText);
+        _tempatLahirEditText = findViewById(R.id.tempatLahirEditText);
+
     }
 
 }
